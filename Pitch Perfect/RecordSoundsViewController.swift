@@ -11,7 +11,7 @@ import  AVFoundation
 
 class RecordSoundsViewController: UIViewController , AVAudioRecorderDelegate{
     
-    var audioRecorder = AVAudioRecorder()
+    var audioRecorder : AVAudioRecorder!
 
     @IBOutlet weak var recordBtn: UIButton!
     @IBOutlet weak var recordLabel: UILabel!
@@ -36,6 +36,7 @@ class RecordSoundsViewController: UIViewController , AVAudioRecorderDelegate{
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
        try!  audioRecorder =  AVAudioRecorder(url: filePath!, settings: [:])
+        audioRecorder.delegate = self
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()

@@ -33,14 +33,14 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupAudio()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(<#Bool#>)
+        super.viewWillAppear(animated)
         configureUI(.notPlaying)
     }
-
+    
     @IBAction func playSoundForButton(_ sender: UIButton) {
         switch(ButtonType(rawValue: sender.tag)!) {
         case .slow:
